@@ -2,104 +2,108 @@
 
 ## Portee
 
-Ces instructions s appliquent a tout le depot.
+Ces instructions s appliquent a tout le depot `agent-skills-git`.
 
-## Objectif du depot
+## Objectif du projet
 
-- Maintenir une bibliotheque de skills Markdown reutilisables orientees creation et maintenance de skills.
-- Privilegier un contenu clair, stable et portable vers Codex ou d autres runtimes compatibles Agent Skills.
-- Conserver une structure simple par skill, avec un dossier dedie sous `skills/`.
+Ce depot maintient une bibliotheque de skills Git pour Codex au format Agent Skills.
 
-## Regles de travail
+Le perimetre actuel couvre :
 
-- Avant de modifier un skill, lire au minimum le `SKILL.md` du dossier concerne et les references directement liees a la demande.
-- Preserver les conventions deja visibles dans le depot: nommage stable, structure Markdown simple, responsabilite unique par skill.
-- Limiter les changements au perimetre utile. Ne pas refactorer plusieurs skills sans besoin explicite.
-- Ne pas introduire de format proprietaire ou de generation complexe quand un fichier Markdown suffit.
-- Si une regle locale est ajoutee plus bas dans l arborescence, elle prime sur ce fichier pour son sous-dossier.
+- l ouverture de session Git en securite ;
+- les workflows de branche, commit, pull, pull request et hotfix ;
+- les garde-fous sur branches protegees ;
+- la resolution de conflits ;
+- l annulation, la recuperation et le versionnage ;
+- la livraison complete d un changement par un agent ;
+- la gouvernance documentaire et la tracabilite de 50 exemples Git.
 
-## Serie d agents pour la redaction de skills
+## Langue et style
 
-Utiliser ces roles comme chaine de travail quand la demande porte sur la creation, la refonte ou l evaluation d un skill.
+- Rediger la documentation de depot en francais.
+- Rediger les `SKILL.md` en anglais pour les skills portables, sauf exception explicitement justifiee.
+- Employer un style directif, factuel et actionnable.
+- Eviter les formulations vagues, marketing ou speculatives.
 
-### 1. Agent Analyse Source
+## Sources de verite du depot
 
-- Mission: lire les articles de reference, la documentation source et les artefacts du depot.
-- Declenchement: quand un skill doit etre base sur une norme, une methode, une documentation interne ou une source externe.
-- Livrable: une synthese des concepts stables, des termes obligatoires, des risques d interpretation et des references a reutiliser.
-- Regles: extraire uniquement ce qui influence le contenu du skill; signaler les zones ambigues; citer les sources de travail dans la synthese.
+- `skills/` contient les skills Git installables.
+- `docs/reference/` contient les references Git mutualisees entre skills.
+- `docs/governance/` contient les regles de redaction, de nommage et de tracabilite.
+- `docs/governance/example-traceability-matrix.md` est la source de verite pour les exemples `EX-001` a `EX-050`.
+- `templates/skill-template/` est le gabarit de depart pour les futurs skills.
+- `openspec/changes/` porte les artefacts OpenSpec des changements substantiels.
 
-### 2. Agent Cadrage Skill
+## Regles OpenSpec
 
-- Mission: definir le perimetre du skill, son resultat attendu et le moment exact ou il doit etre active.
-- Declenchement: quand le besoin est encore large ou qu un skill existant est trop generique.
-- Livrable: nom du skill, promesse editoriale, cas d usage, non-objectifs et structure cible.
-- Regles: viser une responsabilite unique; eviter les skills fourre-tout; decrire l intention utilisateur plutot que l implementation interne.
+- Pour tout changement substantiel, lire les artefacts OpenSpec existants avant de modifier le depot.
+- Maintenir au minimum `proposal.md`, `design.md` et `tasks.md` pour le changement en cours.
+- Garder la coherence entre OpenSpec, les skills, les references et le `README.md`.
+- Ne pas faire evoluer durablement le depot sur un sujet important sans reflet dans OpenSpec.
 
-### 3. Agent Redaction Description
+## Regles Git du projet
 
-- Mission: ecrire ou optimiser le champ `description` du `SKILL.md`.
-- Declenchement: quand le skill ne se declenche pas assez bien ou risque de se declencher trop souvent.
-- Livrable: une description concise orientee activation.
-- Regles: utiliser une formulation du type "Utiliser ce skill quand..."; viser quelques phrases; couvrir les formulations utilisateur probables.
+- Verifier `git status --short --branch` avant toute modification importante.
+- Travailler sur une branche dediee pour tout changement substantiel.
+- Ne pas committer directement sur `main`.
+- Ne pas reecrire l historique d une branche partagee sans demande explicite et justification claire.
+- Ne pas utiliser de `force push` sur une branche protegee.
+- Preferer `--force-with-lease` a `--force` uniquement quand la reecriture est explicitement permise.
 
-### 4. Agent Redaction Procedure
+## Structure attendue d une skill Git
 
-- Mission: rediger le corps du `SKILL.md` avec une sequence d execution robuste.
-- Declenchement: quand la procedure est trop vague, trop longue ou difficile a suivre.
-- Livrable: sections claires pour objectif, entrees, etapes, controles qualite, sortie attendue et cas limites.
-- Regles: faire remonter dans le `SKILL.md` les contraintes importantes des references; expliquer les verifications avant remise; preferer des etapes testables a des consignes floues.
+Chaque skill Git de `skills/git-*/` doit contenir :
 
-### 5. Agent Scripts et Automatisation
+- `SKILL.md`
+- `README.md`
+- `references/concepts.md`
+- `references/decision-rules.md`
+- `references/examples.md` quand la skill possede des exemples detailles
+- `assets/examples/sample-scenarios.md` quand des scenarios longs apportent une vraie valeur
+- `assets/templates/` quand un gabarit reutilisable existe
+- `scripts/` seulement si le script evite un travail repetitif non trivial ou reduit un risque reel
 
-- Mission: decider si un script doit etre ajoute au skill et encadrer son usage.
-- Declenchement: quand la meme logique est repetee, quand une commande devient fragile ou quand une verification mecanique peut etre automatisee.
-- Livrable: decision "sans script" ou "avec script", prerequis, chemin relatif et mode d execution.
-- Regles: n ajouter un script que s il apporte un gain reel de fiabilite ou de repetabilite; documenter les prerequis; utiliser des chemins relatifs depuis la racine du skill.
+## Regles de redaction des skills
 
-### 6. Agent Evaluation
+- Le front matter YAML de `SKILL.md` doit contenir `name` et `description`.
+- La `description` doit commencer par `Use this skill when...`.
+- `SKILL.md` doit rester court et orienter vers les references au lieu de les dupliquer.
+- Les sections minimales attendues sont :
+  - `Purpose`
+  - `When To Use`
+  - `When Not To Use`
+  - `Required Inputs`
+  - `Ordered Procedure`
+  - `Guardrails`
+  - `Output Expectations`
+  - `Examples`
+  - `Related References`
+- Les exemples numerotes doivent etre concrets, distincts et directement reutilisables.
 
-- Mission: evaluer le declenchement et la qualite de sortie du skill.
-- Declenchement: quand un skill nouveau ou refondu doit etre verifie.
-- Livrable: jeu de tests, assertions, constats, recommandations de correction.
-- Regles: tester avec et sans skill ou contre une version precedente; separer evaluation du declenchement et evaluation de la sortie; exiger des preuves concretes pour chaque verdict.
+## Regles sur les exemples
 
-## Workflow recommande
+- Les identifiants `EX-001` a `EX-050` sont reserves et doivent rester uniques.
+- Un exemple detaille doit avoir un seul emplacement source autoritaire.
+- Toute creation, suppression ou deplacement d un exemple numerote doit mettre a jour `docs/governance/example-traceability-matrix.md`.
+- Eviter les doublons de contenu entre `SKILL.md`, `references/examples.md` et `assets/examples/sample-scenarios.md`.
 
-1. Analyse Source
-2. Cadrage Skill
-3. Redaction Description
-4. Redaction Procedure
-5. Scripts et Automatisation, seulement si necessaire
-6. Evaluation
+## Regles sur les scripts
 
-## Regles specifiques aux skills de ce depot
+- Ne pas ajouter de scripts qui encapsulent seulement une commande Git triviale.
+- Privilegier les scripts non interactifs.
+- Documenter dans le `README.md` du skill la valeur apporte par chaque script.
+- Ne jamais automatiser sans confirmation une action destructive ou ambigue.
 
-- Les `SKILL.md` doivent expliciter quand utiliser le skill, pas seulement ce qu il couvre.
-- Les skills portables doivent etre redigees en anglais sauf besoin local explicite.
-- La description doit favoriser le declenchement sur l intention utilisateur.
-- La procedure doit inclure une validation minimale de completude, coherence et tracabilite.
-- Les references `references/*.md` portent le detail; le `SKILL.md` doit en remonter les contraintes decisives pour eviter une execution trop generique.
-- Ne pas ajouter `scripts/` sans justification explicite. Les scripts doivent etre non interactifs.
-- Les utilitaires et templates de depot vivent hors des skills, dans `utilitaires/`, `gabarits/`, `references/` et `exemples/`.
+## Validation minimale avant livraison
 
-## Structure attendue d un skill
+- Verifier que les chemins cites dans les references existent.
+- Verifier que chaque skill Git a bien son `README.md` et son `SKILL.md`.
+- Verifier que la matrice de tracabilite des exemples est a jour.
+- Verifier que les gabarits et references partages pointent vers le contexte reel du depot.
+- Relire le diff pour eviter les contradictions entre skills Git voisines.
 
-- Un dossier sous `skills/` avec un nom explicite et stable.
-- Un fichier `SKILL.md` qui decrit le but, le contexte d usage, la procedure et la sortie attendue.
-- Des fichiers de reference dans `references/` seulement si necessaires a l execution du skill.
+## Installation locale
 
-## Regles de redaction
-
-- Rediger dans la langue principale du depot avec un ton stable et explicite.
-- Produire des instructions actionnables et verifiables.
-- Eviter les doublons entre `README.md`, `skills/README.md`, `SKILL.md` et les references.
-- Preferer le Markdown brut, lisible sans rendu particulier.
-
-## Validation minimale
-
-- Verifier que les chemins cites existent.
-- Verifier que les liens entre `SKILL.md` et `references/` sont coherents.
-- Relire le diff pour eviter les contradictions entre skills voisins.
-- Verifier que la description d un skill indique clairement quand l utiliser.
-- Verifier que la sortie attendue est observable et evaluable.
+- L installation cible Codex se fait dans `~/.codex/skills`.
+- Si une demande vise uniquement les skills Git, ne pas installer les skills generiques non Git du depot sans demande explicite.
+- Lors d une installation manuelle, verifier que les dossiers `skills/git-*` ont bien ete copies avec leur `SKILL.md`.
