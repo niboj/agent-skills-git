@@ -6,3 +6,5 @@
 - [x] Creer les 12 skills Git.
 - [x] Ajouter la matrice de tracabilite des 50 exemples.
 - [x] Verifier la repartition, l unicite et la presence des exemples.
+- [x] Formaliser la specification active du depot.
+- [x] Archiver le changement OpenSpec.
