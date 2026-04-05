@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "suite": "repository-level-examples",
+  "cases": [
+    {
+      "id": "scope-from-raw-need",
+      "target_skill": "skill-definir-perimetre",
+      "prompt": "Nous demandons souvent a l agent de convertir des notes brutes d atelier en notes d implementation, mais les sorties sont incoherentes. J ai besoin d un nouveau concept de skill assez specifique pour bien se declencher et ne pas chevaucher nos skills de redaction d architecture.",
+      "expected_behavior": [
+        "Produit un concept de skill borne.",
+        "Definit des non-objectifs.",
+        "Signale le risque de chevauchement avec des skills voisines."
+      ]
+    },
+    {
+      "id": "description-optimization",
+      "target_skill": "skill-optimiser-description",
+      "prompt": "Resserre cette description pour qu elle se declenche sur les demandes de creation de notes de version a partir de l historique Git, mais pas sur des questions Git generales.",
+      "expected_behavior": [
+        "Ameliore le langage de declenchement.",
+        "Garde la description specifique a la generation de notes de version.",
+        "Evite une couverture Git trop large."
+      ]
+    }
+  ]
+}

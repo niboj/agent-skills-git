@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "skill": "skill-reviser",
+  "cases": [
+    {
+      "id": "review-existing-skill",
+      "prompt": "Revois cette skill pour ses declenchements faibles, ses etapes vagues et ses problemes de portabilite. Constats d abord.",
+      "expected_behavior": [
+        "Produit les constats avant le resume.",
+        "Couvre le perimetre, la description, la validation et la portabilite."
+      ]
+    },
+    {
+      "id": "stale-skill-modernization",
+      "prompt": "Audite cette ancienne skill qui n a pas d evals et un `SKILL.md` surdimensionne.",
+      "expected_behavior": [
+        "Identifie l absence d evals et les problemes de divulgation progressive.",
+        "Propose des modifications concretes a venir."
+      ]
+    },
+    {
+      "id": "no-artifact-provided",
+      "prompt": "Revois une skill pour moi, mais je n ai pas encore fourni les fichiers.",
+      "expected_behavior": [
+        "Signale l artefact manquant au lieu d inventer des constats."
+      ]
+    }
+  ]
+}

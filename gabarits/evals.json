@@ -1,0 +1,23 @@
+{
+  "version": "1",
+  "skill": "theme-sujet-action",
+  "cases": [
+    {
+      "id": "happy-path",
+      "prompt": "Remplacer ceci par une demande utilisateur realiste qui devrait declencher le skill.",
+      "expected_behavior": [
+        "Le skill se declenche.",
+        "La sortie suit le workflow documente.",
+        "Les informations manquantes sont signalees explicitement."
+      ]
+    },
+    {
+      "id": "edge-case",
+      "prompt": "Remplacer ceci par une demande utilisateur limite ou incomplete.",
+      "expected_behavior": [
+        "Le skill se declenche correctement ou explique pourquoi il ne devrait pas.",
+        "La sortie n invente pas les faits manquants."
+      ]
+    }
+  ]
+}

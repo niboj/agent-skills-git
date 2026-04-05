@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "skill": "skill-normaliser-style",
+  "cases": [
+    {
+      "id": "tighten-verbose-skill",
+      "prompt": "Normalise cette skill pour qu elle se lise de facon concise, utilise des etapes imperatives et retire le remplissage sans changer le workflow.",
+      "expected_behavior": [
+        "Ameliore la clarte et la coherence.",
+        "Ne change pas le perimetre."
+      ]
+    },
+    {
+      "id": "align-repo-conventions",
+      "prompt": "Reecris ces trois skills pour que leurs titres et leur langage de validation correspondent au standard du depot.",
+      "expected_behavior": [
+        "Applique une structure coherente.",
+        "Garde intacte la capacite de chaque skill."
+      ]
+    },
+    {
+      "id": "add-new-capability-request",
+      "prompt": "Normalise cette skill et ajoute aussi le support de generation d evals.",
+      "expected_behavior": [
+        "Evite d ajouter une nouvelle capacite sous couvert de nettoyage de style."
+      ]
+    }
+  ]
+}

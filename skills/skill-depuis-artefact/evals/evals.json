@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "skill": "skill-depuis-artefact",
+  "cases": [
+    {
+      "id": "conversation-to-skill-brief",
+      "prompt": "Derive une skill reutilisable a partir de cette discussion ou nous avons transforme a repetion des notes de deploiement en plans de retour arriere et ou la correction principale consistait a separer l impact confirme de l impact estime.",
+      "expected_behavior": [
+        "Extrait le workflow repetitif.",
+        "Preserve les corrections critiques.",
+        "Produit une note reutilisable."
+      ]
+    },
+    {
+      "id": "runbook-to-skill-idea",
+      "prompt": "Utilise ce runbook operationnel pour extraire une skill candidate et noter quels details sont ponctuels versus reutilisables.",
+      "expected_behavior": [
+        "Separe le motif reutilisable du bruit local."
+      ]
+    },
+    {
+      "id": "abstract-brainstorm-no-source",
+      "prompt": "Propose quelques skills possibles pour des equipes d ingenierie. Il n y a pas encore d artefact source.",
+      "expected_behavior": [
+        "Signale qu un artefact source manque pour ce workflow de derivation."
+      ]
+    }
+  ]
+}

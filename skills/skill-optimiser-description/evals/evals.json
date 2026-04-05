@@ -1,0 +1,31 @@
+{
+  "version": "1",
+  "skill": "skill-optimiser-description",
+  "cases": [
+    {
+      "id": "reduce-false-positives",
+      "prompt": "Resserre cette description pour qu elle se declenche pour la generation de descriptions de PR mais pas pour des questions Git generales.",
+      "expected_behavior": [
+        "Ajoute de forts signaux de declenchement.",
+        "Enonce un domaine voisin de non-usage.",
+        "Garde la description concise."
+      ]
+    },
+    {
+      "id": "missing-trigger-language",
+      "prompt": "Reecris cette description : 'Skill pour notes de version et communication.'",
+      "expected_behavior": [
+        "Transforme le sujet vague en langage d usage explicite.",
+        "Mentionne la sortie et les prompts probables."
+      ]
+    },
+    {
+      "id": "whole-skill-review-request",
+      "prompt": "Revois toute cette skill et propose des ameliorations structurelles.",
+      "expected_behavior": [
+        "Ne reduit pas la tache a une simple edition de description.",
+        "Signale qu une revue plus large constitue une autre tache."
+      ]
+    }
+  ]
+}

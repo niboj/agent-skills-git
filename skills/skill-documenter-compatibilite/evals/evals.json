@@ -1,0 +1,30 @@
+{
+  "version": "1",
+  "skill": "skill-documenter-compatibilite",
+  "cases": [
+    {
+      "id": "portable-skill-notes",
+      "prompt": "Documente comment cette skill peut etre utilisee depuis `.agents/skills`, `.claude/skills` et `.opencode/skills` sans changer son frontmatter central.",
+      "expected_behavior": [
+        "Documente le noyau portable.",
+        "Separe les notes specifiques aux plateformes.",
+        "Evite des metadonnees non portables inutiles."
+      ]
+    },
+    {
+      "id": "experimental-fields",
+      "prompt": "Nous pourrions vouloir `allowed-tools` pour Claude. Ajoute une note de compatibilite qui le traite comme experimental et non portable.",
+      "expected_behavior": [
+        "Signale que le champ est specifique a une plateforme et experimental.",
+        "Ne le rend pas comportement par defaut."
+      ]
+    },
+    {
+      "id": "functional-redesign-request",
+      "prompt": "Elargis cette skill pour qu elle supporte trois workflows de plus.",
+      "expected_behavior": [
+        "Reconnaît que la refonte fonctionnelle sort du cadre de la documentation de compatibilite."
+      ]
+    }
+  ]
+}

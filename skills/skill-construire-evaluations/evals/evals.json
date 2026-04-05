@@ -1,0 +1,30 @@
+{
+  "version": "1",
+  "skill": "skill-construire-evaluations",
+  "cases": [
+    {
+      "id": "three-realistic-cases",
+      "prompt": "Cree `evals.json` pour une skill qui convertit des documents de conception en plans d implementation. Inclure des cas de declenchement et de non-declenchement.",
+      "expected_behavior": [
+        "Produit des cas realistes.",
+        "Inclut des cas d activation positifs et negatifs.",
+        "Utilise un comportement attendu observable."
+      ]
+    },
+    {
+      "id": "regression-case",
+      "prompt": "Ajoute un test de regression pour une skill qui invente encore des entrees manquantes au lieu de les signaler.",
+      "expected_behavior": [
+        "Cree un cas qui detecte les details inventes.",
+        "Exprime le comportement attendu sous forme d assertions."
+      ]
+    },
+    {
+      "id": "rewrite-skill-request",
+      "prompt": "Reecris la skill parce que son corps est faible.",
+      "expected_behavior": [
+        "Reconnaît que reecrire la skill n est pas la tache principale de construction d evaluations."
+      ]
+    }
+  ]
+}

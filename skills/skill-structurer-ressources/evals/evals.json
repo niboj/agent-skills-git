@@ -1,0 +1,30 @@
+{
+  "version": "1",
+  "skill": "skill-structurer-ressources",
+  "cases": [
+    {
+      "id": "move-detail-out-of-skill-md",
+      "prompt": "Cette skill contient 700 lignes d instructions, d exemples et de tableaux d API. Propose comment la scinder en references, scripts et assets.",
+      "expected_behavior": [
+        "Garde le workflow principal dans `SKILL.md`.",
+        "Deplace le detail lourd vers les references.",
+        "Justifie les scripts ou assets ajoutes."
+      ]
+    },
+    {
+      "id": "decide-if-script-needed",
+      "prompt": "Nous validons toujours manuellement les champs du frontmatter et les noms de dossiers. Cette skill devrait-elle ajouter un script ?",
+      "expected_behavior": [
+        "Recommande un script pour une validation deterministe et repetable.",
+        "Documente pourquoi le script apporte de la valeur."
+      ]
+    },
+    {
+      "id": "pure-drafting-request",
+      "prompt": "Ecris les instructions principales d une nouvelle skill sur les resumes de contrats.",
+      "expected_behavior": [
+        "Reconnaît que la demande concerne la redaction, pas la structuration des ressources."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": "1",
+  "skill": "skill-rediger-instructions",
+  "cases": [
+    {
+      "id": "draft-from-scope",
+      "prompt": "Ecris le corps `SKILL.md` pour une skill qui transforme des notes de planification de sprint en histoires pretes pour Jira avec criteres d acceptation et emplacements reserves pour les estimations.",
+      "expected_behavior": [
+        "Produit un corps `SKILL.md` procedural.",
+        "Inclut les entrees, la procedure et la validation.",
+        "Garde le detail long hors du corps principal."
+      ]
+    },
+    {
+      "id": "rewrite-vague-body",
+      "prompt": "Ce `SKILL.md` est trop generique et se contente de dire de suivre les bonnes pratiques. Reecris-le en etapes concretes.",
+      "expected_behavior": [
+        "Remplace la formulation vague par des etapes actionnables.",
+        "Ajoute un chemin par defaut clair."
+      ]
+    },
+    {
+      "id": "description-only-request",
+      "prompt": "Ameliore seulement la description de cette skill pour qu elle se declenche mieux.",
+      "expected_behavior": [
+        "Reconnaît que l optimisation de description seule est une tache voisine.",
+        "Evite de reecrire inutilement tout le corps de la skill."
+      ]
+    }
+  ]
+}

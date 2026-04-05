@@ -1,0 +1,29 @@
+{
+  "version": "1",
+  "skill": "skill-construire-gabarits",
+  "cases": [
+    {
+      "id": "build-advanced-template",
+      "prompt": "Cree un gabarit `SKILL.md` avance pour des skills orientees code qui ont besoin de boucles de validation et de references.",
+      "expected_behavior": [
+        "Produit un gabarit reutilisable plutot qu une skill ponctuelle.",
+        "Inclut des placeholders et une structure par defaut."
+      ]
+    },
+    {
+      "id": "review-checklist-template",
+      "prompt": "Genere un gabarit de check-list de revue pour les mainteneurs de skills.",
+      "expected_behavior": [
+        "Produit un artefact de check-list reutilisable.",
+        "Le garde generique et portable."
+      ]
+    },
+    {
+      "id": "single-skill-draft-request",
+      "prompt": "Ecris la skill finale pour transformer des notes d incident en postmortem.",
+      "expected_behavior": [
+        "Evite de traiter une redaction ponctuelle comme un gabarit sauf si cela est demande."
+      ]
+    }
+  ]
+}

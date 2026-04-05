@@ -1,0 +1,31 @@
+{
+  "version": "1",
+  "skill": "skill-definir-perimetre",
+  "cases": [
+    {
+      "id": "raw-need-to-bounded-skill",
+      "prompt": "Nous demandons souvent a l agent de transformer des notes brutes d atelier d architecture en notes pretes pour le backlog. Definis une nouvelle skill pour cela sans chevaucher nos skills de nettoyage documentaire.",
+      "expected_behavior": [
+        "Produit un concept de skill borne.",
+        "Definit des non-objectifs.",
+        "Signale le chevauchement avec des skills voisines."
+      ]
+    },
+    {
+      "id": "split-broad-request",
+      "prompt": "Je veux une seule skill qui cree des skills, les reveille, ecrive des evals et initialise aussi des dossiers.",
+      "expected_behavior": [
+        "Identifie que la demande est trop large.",
+        "Recommande des frontieres plus coherentes entre petites skills."
+      ]
+    },
+    {
+      "id": "nearby-non-goal",
+      "prompt": "Ecris le `SKILL.md` final pour une skill de notes de version.",
+      "expected_behavior": [
+        "Ne traite pas la redaction finale comme tache principale.",
+        "Redirige vers le cadrage de perimetre ou indique qu une autre skill de redaction est plus appropriee."
+      ]
+    }
+  ]
+}
